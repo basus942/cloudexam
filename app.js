@@ -10,7 +10,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const { notFound, internalServerError } = require("./middleware/errors");
 const { addComments, allComments } = require("./middleware/feature");
-
+app.get("/", async (req, res, next) => {
+  res.send("Cloud Exam APi");
+});
 app.post("/addcomments", addComments);
 app.get("/allComments", allComments);
 
